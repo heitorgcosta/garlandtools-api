@@ -46,7 +46,7 @@ const cache = async (url) => { // A simple function to check the cache for data.
     if (!cachedData.get(url)) {
         cachedData.set(url, {
             data: await request(url),
-            time: now
+            time: new Date().getTime()
         });
     }
     return cachedData.get(url).data;
