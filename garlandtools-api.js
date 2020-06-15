@@ -193,17 +193,13 @@ module.exports.fishingSpots = async () => {
 };
 
 /**
- * @param type The database directory to retrieve from, e.g. "item", "action", etc.
+ * @param type The database directory to get the url from, e.g. "item", "action", etc.
  * @param id The icon ID.
- * @returns A PNG icon.
+ * @returns The url for the PNG icon.
  */
-module.exports.icon = async (type, id) => {
-    return new Promise(async (resolve, reject) => {
-        let response;
-        response = await cache(iconURL + `${type}/${id}.png`);
-        resolve(response);
-    });
-};
+module.exports.iconUrl = (type, id) => {
+    return iconURL + `${type}/${id}.png`;
+}
 
 /**
  * @param id The instance's ID.
